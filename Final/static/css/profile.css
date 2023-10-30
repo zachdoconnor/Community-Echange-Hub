@@ -1,0 +1,118 @@
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    background-color: lightgrey;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    display: inline-block; /* Ensure it's inline-block */
+    margin: 0 auto; /* Center it */
+}
+
+.h1-fill {
+    background-color: #333; /* Light grey background */
+    padding: 5px 300px; /* Add some padding */
+    display: inline-block; /* Make it inline block to fit the content */
+    border-radius: 20px; /* Optional: Add some border-radius for rounded corners */
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Changed to space-between for better spacing */
+    margin-bottom: 30px; /* Adjust this to control spacing between the profile info and the edit button */
+}
+
+.profile-image img {
+    width: 300px; /* Set to fixed width for better control */
+    height: 400px; /* Set to fixed height for better control */
+    border-radius: 10%; /* Making it a circle */
+    object-fit: cover; /* Ensures image maintains aspect ratio */
+}
+
+.profile-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Stack the details vertically */
+    justify-content: center; /* Vertically center the details */
+}
+
+.profile-details p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    margin-left: 20px; /* Add left margin for spacing */
+}
+
+.edit-profile {
+    margin-top: 30px; /* Increased top margin */
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased bottom margin */
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px; /* Increased font size */
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px; /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Increased font size */
+}
+
+.submit-button {
+    background-color: #555; /* Green color */
+    color: #fff;
+    padding: 12px 15px; /* Increased padding */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+    width: 100%;
+}
+
+
+.submit-button:hover {
+    background-color: green;
+}
+
+.edit-profile {
+    display: none;
+    margin-top: 20px;
+}
+
+.edit-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.edit-button:hover {
+    background-color: #555;
+}

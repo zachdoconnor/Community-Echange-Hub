@@ -1,0 +1,76 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    margin: 0; /* reset margin */
+    padding: 0; /* reset padding */
+}
+
+h1.company-name {
+    font-size: 36px; /* increased size for better visibility */
+    margin: -10px auto; /* center the h1 with auto margins */
+    color: #fff;
+    text-shadow: 2px 2px 4px #777;
+    background: linear-gradient(135deg, #333, #555);
+    padding: 15px 30px;
+    border-radius: 25px;
+    display: block; /* take up the full width of its parent */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center; /* ensure text is centered */
+}
+
+img {
+    max-width: 100%; /* ensures images are responsive and don't overflow their containers */
+    height: auto;
+    margin: 10px auto;
+}
+
+.home-container {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 50px; /* gap between the logo and the text */
+}
+
+.company-logo {
+    flex: 1; /* take up equal space as the text */
+    max-width: 500px; /* limit width for larger screens */
+    margin-right: 20px;
+}
+
+.company-text {
+    flex: 1; /* take up equal space as the logo */
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #444; /* slightly darker for better contrast */
+    text-decoration: none; /* removed underline */
+    border-bottom: 2px solid #666; /* added a border bottom for a refined underline effect */
+    display: inline-block; /* needed for the border-bottom to fit the content */
+}
+
+.company-description {
+    font-size: 18px;
+    max-width: 100%; /* allow it to take the full width of its parent */
+    text-align: justify;
+    color: #555;
+    margin-top: 20px; /* added spacing above the text */
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.homepage-logo {
+    width: 150px; /* or any width you desire */
+    display: block;
+    margin: 20px auto; /* centers the logo */
+}

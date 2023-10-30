@@ -1,0 +1,72 @@
+form {
+    width: 300px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    background: #FF4D4D;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+ul li {
+    text-align: center;
+}
+
+h1, h3 {
+    font-family: 'Georgia', serif;  /* Using a serif font for headers */
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: center; /* Center aligned text */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;  /* Dark color for primary heading */
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #555;  /* Slightly lighter color for secondary heading */
+}
