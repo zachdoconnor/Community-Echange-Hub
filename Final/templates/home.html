@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<center><h1 class="company-name">Community Exchange Hub</h1></center>
+
+<img class="homepage-logo" src="{{ url_for('static', filename='images/logo.png') }}">
+
+<div class="home-container">
+    <img src="{{ url_for('static', filename='images/home1.jpg') }}" alt="Company Logo" class="company-logo">
+
+    <div class="company-text">
+        <h2>Our Mission</h2>
+        <p class="company-description">
+            Beyond the mere facilitation of transactions, our heart lies in forging lasting relationships. We champion local trade, aspiring to uplift sustainable living that resonates with environmental consciousness and economic prudence. Recognizing the modern longing for genuine interpersonal connections and trustworthiness in commerce, our platform stands as a beacon. Be it sharing a meticulously crafted artifact, imparting wisdom on organic farming, or on the lookout for a particular service, with Community Exchange Hub, rest assured that every interaction is anchored in trust, esteem, and mutual advantage. Dive in, and let's reshape community interactions, making every exchange meaningful.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
