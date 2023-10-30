@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+<div class="profile-container">
+    <center><h1><span class="h1-fill">{{ user['user_name'] }}</span></h1></center>
+
+    <div class="profile-info">
+        <div class="profile-image">
+            <center><img src="{{ url_for('static', filename=user['profile_image']) }}" alt="Profile Picture"></center>
+        </div>
+        <div class="profile-details">
+            <p><strong>Email:</strong> {{ user['email'] }}</p>
+            <p><strong>Location:</strong> {{ user['location'] }}</p>
+        </div>
+    </div>
+    <button id="edit-button" class="edit-button">Edit Profile</button>
+
+
+    <div class="edit-profile">
+        <h2>Edit Profile</h2>
+        <form method="POST" action="/update_profile">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{ user['email'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" name="location" value="{{ user['location'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profile_image">Profile Image URL:</label>
+                <input type="text" name="profile_image" value="{{ user['profile_image'] }}" required>
+            </div>
+
+            <input type="submit" value="Update Profile" class="submit-button">
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const editButton = document.getElementById('edit-button');
+        const editProfileForm = document.querySelector('.edit-profile');
+
+        editButton.addEventListener('click', function () {
+            editProfileForm.style.display = 'block';
+        });
+
+        editProfileForm.addEventListener('submit', function () {
+            editProfileForm.style.display = 'none';
+        });
+    });
+</script>
+
+{% endblock %}

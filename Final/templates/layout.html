@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="site-title">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="navbar-logo">
+                <a href="/">Community Exchange Hub</a>
+            </li>
+
+            <div class="left-links">
+                <li><a href="home">Home</a></li>
+                <li><a href="inbox">Inbox</a></li>
+                <li><a href="listings">Listings</a></li>
+
+                <!-- Profile now inside left-links -->
+                <li class="dropdown">
+                    <a href="profile">Profile</a>
+                    <div class="dropdown-content">
+                        <a href="login">Login</a>
+                        <a href="registration">Registration</a>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <h1>
+        {% block content_title %}
+        {% endblock %}
+    </h1>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
