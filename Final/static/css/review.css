@@ -1,0 +1,63 @@
+/* Classic & Elegant Style - Enhanced */
+.reviews-container {
+    color: #333;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    max-width: 760px; /* set max-width for better reading on large screens */
+    margin: 40px auto; /* Center container with auto margins */
+}
+
+.reviews-container h1 {
+    color: #444;
+    font-size: 2em; /* slightly larger */
+    padding-bottom: 0.25em;
+    margin-bottom: 1em;
+    text-align: center; /* centered text for header, removed the <center> tag from HTML as it's obsolete */
+    border-bottom: 1px solid #dcdcdc; /* softer line color */
+}
+
+.review-item {
+    background-color: #fcfcfc; /* very light background for contrast */
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #eee; /* light border for subtle definition */
+    border-radius: 4px; /* rounded corners for polish */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* smooth transitions for interaction */
+}
+
+.review-item:hover {
+    transform: translateY(-2px); /* slight raise effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* shadow for raised effect */
+}
+
+.review-user-name {
+    font-size: 1.2em;
+    color: #222; /* darker for contrast */
+    font-weight: bold; /* make the name bold for emphasis */
+    margin-bottom: 0.5em;
+}
+
+.review-rating {
+    display: inline-block; /* for background styling */
+    background-color: #fffbea; /* soft background for the rating */
+    padding: 3px 8px; /* some padding around the rating */
+    border-radius: 2px; /* subtle rounding of edges */
+    color: #f4b942; /* maintain the golden tone */
+    font-weight: bold; /* bold for better visibility */
+    margin-bottom: 0.75em; /* more space below the rating */
+}
+
+.review-comment {
+    font-size: 1em; /* normalize font size */
+    color: #555; /* slightly lighter than black for ease of reading */
+    line-height: 1.8; /* increased line height for readability */
+    text-align: left; /* align to the left for standard reading */
+    background-color: #f8f8f8; /* light background to offset from the container */
+    padding: 15px; /* padding for breathing room */
+    border-radius: 2px; /* consistent rounded edges */
+    margin: 10px 0 0; /* spacing adjustments */
+    display: block; /* confirm it's a block for full-width background */
+}

@@ -5,6 +5,13 @@ body {
     padding: 0;
 }
 
+body, html {
+    height: 100%; /* Make sure the html and body are at least the height of the viewport */
+    margin: 0; /* Reset any default margin */
+    display: flex; /* Use flexbox to create a column layout */
+    flex-direction: column; /* Stack flex items in a column */
+}
+
 nav {
     background-color: #333;
     color: #fff;
@@ -130,4 +137,87 @@ nav li a:hover {
     height: 30px; /* Adjust the height as needed */
     margin-right: 15px; /* Some spacing between the text and the logo */
     vertical-align: middle; /* Align the logo with the middle of the text */
+}
+
+footer {
+    background-color: #333; /* Match the navigation bar color */
+    margin-top: auto;
+    color: white; /* Text color that contrasts with the footer background */
+    text-align: center; /* Center-align the footer text */
+    padding: 10px 20px; /* Similar padding to the nav for consistency */
+    position: relative; /* Position relative for footer-specific positioning if needed */
+    bottom: 0; /* If you want the footer to stick to the bottom */
+    left: 0; /* Align left to the viewport */
+    width: 100%; /* Full width */
+}
+
+footer p {
+    margin: 0; /* Reset default margins for the paragraph */
+    padding: 10px 0; /* Add some vertical padding */
+    font-size: 0.875rem; /* Smaller font size for the footer text */
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start of the flex container */
+    }
+
+    nav li {
+        display: block; /* Each link takes a full line on its own */
+        padding: 10px; /* Adjust padding for touch targets and spacing */
+    }
+
+    .navbar-logo {
+        height: 25px; /* Adjust logo size for smaller screens */
+    }
+
+    .site-title {
+        font-size: 1.25em; /* Adjust title size for smaller screens */
+    }
+
+    /* Adjust h1 size for smaller screens */
+    h1 {
+        font-size: 1.5em; /* Smaller font size for smaller screens */
+    }
+
+    /* Make dropdowns expand full width to utilize space */
+    .dropdown-content {
+        right: auto; /* Align dropdown content to the auto, removing right alignment */
+        width: 100%; /* Full width for dropdowns on smaller screens */
+    }
+
+    footer p {
+        font-size: 0.75rem; /* Even smaller font size on smaller screens */
+    }
+}
+
+/* Responsive design adjustments for mobile phones */
+@media (max-width: 480px) {
+    /* Adjust nav padding for smaller screens */
+    nav {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+
+    /* Adjust site title margin on very small screens */
+    .site-title {
+        margin: auto; /* Center title when on very small screens */
+        text-align: center;
+    }
+
+    /* Adjust button sizes for better touch interaction */
+    nav li a, .dropdown-content a {
+        padding: 15px; /* Larger padding for easier touch */
+    }
+
+    /* Adjust div container padding on smaller screens */
+    div {
+        padding: 15px; /* Adjust the padding to be proportionate on small screens */
+    }
+}
+
+/* Ensure footer stays at the bottom */
+footer {
+    position: static; /* You can use 'fixed' or 'static' depending on need */
+    bottom: 0; /* Stick to the bottom */
 }

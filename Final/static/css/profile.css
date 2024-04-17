@@ -1,118 +1,148 @@
 .profile-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    background-color: lightgrey;
-}
-
-h1 {
-    font-size: 60px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 40px;
-    color: white;
-    display: inline-block; /* Ensure it's inline-block */
-    margin: 0 auto; /* Center it */
-}
-
-.h1-fill {
-    background-color: #333; /* Light grey background */
-    padding: 5px 300px; /* Add some padding */
-    display: inline-block; /* Make it inline block to fit the content */
-    border-radius: 20px; /* Optional: Add some border-radius for rounded corners */
-}
-
-h2 {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #555;
+    max-width: 700px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
 .profile-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Changed to space-between for better spacing */
-    margin-bottom: 30px; /* Adjust this to control spacing between the profile info and the edit button */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
+    gap: 20px; /* Space between image and details */
+    padding: 20px; /* Padding around content */
 }
 
 .profile-image img {
-    width: 300px; /* Set to fixed width for better control */
-    height: 400px; /* Set to fixed height for better control */
-    border-radius: 10%; /* Making it a circle */
-    object-fit: cover; /* Ensures image maintains aspect ratio */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px double #555;
+    padding: 3px;
 }
 
 .profile-details {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column; /* Stack the details vertically */
-    justify-content: center; /* Vertically center the details */
+    padding: 10px;
+    background: #f5f5f5;
+    border-left: 2px solid #ddd;
 }
 
 .profile-details p {
-    font-size: 20px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    margin-left: 20px; /* Add left margin for spacing */
+    margin: 10px 0;
+    font-size: 18px; /* Adjust the font size as needed */
 }
 
-.edit-profile {
-    margin-top: 30px; /* Increased top margin */
+.h1-fill, .h2-fill {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
-.form-group {
-    margin-bottom: 25px; /* Increased bottom margin */
-}
-
-label {
+.leave-review-button, .edit-button, .submit-button, .cancel-button, .message-user-button {
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin: 5px;
     font-weight: bold;
-    font-size: 16px; /* Increased font size */
 }
 
-input[type="text"], input[type="email"] {
-    width: 100%;
-    padding: 10px; /* Increased padding */
-    border: 1px solid #ddd;
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Increased font size */
-}
-
-.submit-button {
-    background-color: #555; /* Green color */
-    color: #fff;
-    padding: 12px 15px; /* Increased padding */
-    border: none;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer;
-    font-size: 16px; /* Increased font size */
-    width: 100%;
-}
-
-
-.submit-button:hover {
-    background-color: green;
-}
 
 .edit-profile {
     display: none;
-    margin-top: 20px;
+    margin: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
 }
 
-.edit-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 15px;
+.form-group label {
     display: block;
-    margin: 0 auto 20px;
+    margin-bottom: .5em;
 }
 
-.edit-button:hover {
-    background-color: #555;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
 }
+
+.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="file"], .form-group input[type="number"], .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+.star-rating {
+    font-size: 24px;
+    color: #FFD700; /* Gold color; change as you like */
+  }
+
+  .listings-container {
+    max-width: 700px; /* Set a max-width to keep content from spanning too wide on larger screens */
+    margin: 20px auto; /* Center the container with automatic horizontal margins */
+    padding: 20px; /* Add some padding inside the container */
+    background: #ffffff; /* Use a white background for cleanliness */
+    border-radius: 4px; /* Slight rounding of corners */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    text-align: center; /* Center align the text - removes the need for <center> tags */
+}
+
+.listings-container h2 {
+    color: #333333; /* Dark grey color for the headings */
+    font-size: 1.75rem; /* Slightly larger font size for the heading */
+    margin-bottom: 1rem; /* Space below the heading */
+    padding-bottom: .5rem; /* Padding at the bottom of the heading */
+    border-bottom: 2px solid #eeeeee; /* A light border under the heading for separation */
+    display: inline-block; /* Adjust display to allow border-bottom to fit content width */
+    margin-top: 0; /* Reset the margin-top */
+}
+
+.listings-container ul {
+    list-style: none; /* Remove bullet points from the list */
+    padding: 0; /* Reset padding to remove indents */
+    margin: 0; /* Reset margins to remove indents */
+    text-align: left; /* Align text to the left within the container */
+}
+
+.listings-container li {
+    background: #f9f9f9; /* Slight grey background for each list item */
+    margin-bottom: 10px; /* Margin at the bottom of each list item */
+    padding: 10px; /* Padding inside each list item */
+    border-radius: 4px; /* Rounded corners for the list items */
+    transition: background-color 0.3s ease; /* Transition for interaction */
+}
+
+.listings-container a {
+    color: #007bff; /* Bootstrap's default blue for links */
+    text-decoration: none; /* No underline on links */
+    display: block; /* Make the link fill the entire list item for better clickability */
+    transition: color 0.3s ease; /* Transition for the link color */
+}
+
+.listings-container a:hover, .listings-container a:focus {
+    color: #0056b3; /* Darker blue on hover/focus for better interactivity */
+    text-decoration: none; /* No underline on hover/focus to maintain cleanliness */
+    background-color: #f0f0f0; /* Light grey background on hover/focus for list item */
+}
+
+.listings-container p {
+    color: #666666; /* Medium grey for paragraph text */
+    font-size: 1rem; /* Standard font size for paragraph text */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+

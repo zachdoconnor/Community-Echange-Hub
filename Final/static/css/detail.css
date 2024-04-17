@@ -1,0 +1,90 @@
+/* detail.css - Option 5 */
+.listing-detail {
+  font-family: 'Calibri', 'Arial', sans-serif;
+  max-width: 760px;
+  margin: 48px auto;
+  padding: 24px;
+  background: #fdfdfd;
+  border: 1px solid #eff0f1;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.listing-title {
+  font-size: 29px;
+  border-bottom: 1px solid #eff0f1;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  color: #303030;
+}
+
+.listing-category, .listing-user, .listing-date {
+  color: #606770;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+
+.listing-user a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.listing-user a:hover {
+  text-decoration: underline;
+}
+
+.listing-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.listing-image {
+  width: 48%;
+  height: auto;
+  border: 1px solid #eff0f1;
+  border-radius: 6px;
+  padding: 5px;
+  background: #fafafa;
+}
+
+.listing-description h2 {
+  font-size: 21px;
+  color: #303030;
+  margin: 20px 0 10px;
+}
+
+.listing-description p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #404040;
+}
+
+.delete-listing-btn {
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  margin-top: 24px;
+}
+
+.delete-listing-btn:hover {
+  background
+}
+
+.back-to-listings {
+  color: #495057;
+  background-color: #e2e6ea;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.15s ease-in-out;
+  display: block;
+  width: auto;
+  text-align: center;
+  margin: 2rem auto 0;
+}

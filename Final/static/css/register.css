@@ -33,8 +33,9 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 93%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -61,7 +62,7 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 0 0 20px 0;
-    background: green;  /* This is the green background color */
+    background: red;  /* This is the green background color */
     color: white;
     padding: 10px;
     border-radius: 3px;
@@ -70,5 +71,10 @@ ul {
 
 ul li {
     text-align: center;
+}
+
+@keyframes flash {
+    0%, 100% { background-color: #dff0d8; } /* Light green background */
+    50% { background-color: #c8e5bc; } /* Slightly darker green background */
 }
 

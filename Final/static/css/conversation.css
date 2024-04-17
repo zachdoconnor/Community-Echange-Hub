@@ -1,0 +1,125 @@
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 40%; /* Reduced from 80% to make the overall container smaller */
+    margin: 30px auto;
+}
+
+.message-list li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 8px; /* Reduced padding to make each message box smaller */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for messages sent by the user */
+.message-list li.sent {
+    background: #dcf8c6; /* Light green background for sent messages */
+    text-align: right;
+    border-bottom-right-radius: 0;
+}
+
+/* Style for messages received by the user */
+.message-list li.received {
+    text-align: left;
+    border-bottom-left-radius: 0;
+}
+
+.message-sender {
+    font-weight: bold;
+}
+
+.message-content {
+    display: block; /* Makes content span the full width below the sender */
+    margin-top: 5px;
+    word-wrap: break-word; /* Ensures that words break and wrap to the next line */
+    overflow-wrap: break-word; /* Standard CSS3 property, equivalent to word-wrap */
+}
+
+.message-date {
+    display: block;
+    font-size: 0.75em; /* Slightly smaller font size for the date */
+    color: #888;
+    margin-top: 8px; /* Adjusted margin */
+}
+
+form {
+    width: 40%; /* Match the form width with the message list width */
+    margin: 20px auto;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 80px; /* Reduced height */
+    box-sizing: border-box;
+}
+
+/* Styles for form and buttons */
+.message-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    flex: 1; /* Both buttons take equal space */
+    padding: 10px;
+    text-align: center;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px; /* Adjust space between buttons */
+    text-decoration: none; /* Removes underline from the 'Back to Inbox' button if it's a link */
+    box-sizing: border-box; /* Ensures padding is included in total width/height */
+}
+
+/* Specific styles for send button */
+.send-button {
+    background: #5cb85c;
+    /* No need to change other properties, the .button class takes care of it */
+}
+
+/* Specific styles for back to inbox button */
+.back-to-inbox-button {
+    background-color: #3498db;
+    /* No need to change other properties, the .button class takes care of it */
+}
+
+/* Hover styles for both buttons */
+.button:hover {
+    opacity: 0.9; /* Consistent hover effect for both buttons */
+}
+
+/* If you want to apply different hover effects for each button, add specific classes or ids */
+.send-button:hover {
+    background: #4cae4c; /* Lighter green for hover effect */
+}
+
+.back-to-inbox-button:hover {
+    background-color: #2980b9; /* Darker blue for
+
+/* Responsive design adjustments */
+@media (max-width: 767px) {
+    .message-list, form {
+        width: 95%; /* Full width on smaller screens */
+    }
+}
