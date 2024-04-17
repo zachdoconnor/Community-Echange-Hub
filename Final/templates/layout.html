@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Community Exchange Hub{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="site-title">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="navbar-logo">
+                <a href="/">Community Exchange Hub</a>
+            </li>
+            <div class="left-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('inbox') }}">Inbox</a></li>
+                <li><a href="{{ url_for('listings') }}">Listings</a></li>
+                <li><a href="{{ url_for('createlisting') }}">Create Listing</a></li>
+
+                {% if 'user_id' in session %}
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('index') }}">Register</a></li> <!-- Changed from 'index' to 'register' -->
+                {% endif %}
+            </div>
+        </ul>
+    </nav>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; {{ current_year }} Community Exchange Hub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}Conversation{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/conversation.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/conversation.css') }}">
+
+<h1>Conversation with {{ with_user_name }}</h1>
+
+<ul class="message-list">
+    {% for message in messages %}
+    <li class="{{ 'sent' if message.senderID == user_id else 'received' }}">
+        <span class="message-sender">{{ 'Me' if message.senderID == user_id else message.sender_name }}:</span>
+        <span class="message-content">{{ message.content }}</span>
+        <!-- Format the sendDate using strftime to display in 12-hour format with AM/PM -->
+        <span class="message-date">{{ message.sendDate|datetimeformat }}</span>
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="{{ url_for('send_message') }}" method="post" class="message-form">
+    <textarea name="message_content" required></textarea>
+    <input type="hidden" name="receiver_id" value="{{ with_user_id }}">
+    <div class="form-buttons">
+        <a href="{{ url_for('inbox') }}" class="button back-to-inbox-button">Back to Inbox</a>
+        <button type="submit" class="button send-button">Send</button>
+    </div>
+</form>
+
+
+{% endblock %}

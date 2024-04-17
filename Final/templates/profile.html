@@ -1,0 +1,163 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+{% with messages = get_flashed_messages(category_filter=["profile_error"]) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <center><li>{{ message }}</li></center>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<div class="profile-container">
+    <center><h1><span class="h1-fill">{{ user['f_name'] }} {{ user['l_name'] }}</span></h1></center>
+    <div class="profile-info">
+        <div class="profile-image">
+            <center><img src="{{ url_for('static', filename=user['profile_image']|default('images/profile.jpg', true)) }}" alt="Profile Picture"></center>
+        </div>
+        <div class="profile-details">
+            <p><strong>Username:</strong> {{ user['user_name'] }}</p>
+            {% if session['user_id'] == user['user_id'] %}
+                <p><strong>Email:</strong> {{ user['email'] }}</p>
+            {% endif %}
+            <p><strong>Location:</strong> {{ user['location'] }}</p>
+        </div>
+    </div>
+
+    <div class="average-review-container">
+    <h2>Average Review Score</h2>
+    {% if average_rating %}
+        <p>
+            <span class="star-rating">
+                {% for i in range(average_rating|int) %}
+                    ★ <!-- Full star -->
+                {% endfor %}
+                {% for i in range(5 - average_rating|int) %}
+                    ☆ <!-- Empty star -->
+                {% endfor %}
+            </span>
+            <a href="{{ url_for('user_reviews', user_id=user['user_id']) }}"><strong>{{ average_rating }}/5</strong></a>
+        </p>
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+</div>
+
+    {% if not is_own_profile %}
+    <button id="leave-review-button" class="leave-review-button">Leave a Review</button>
+    {% endif %}
+
+    <div class="submit-review" id="submit-review-form" style="display: none;">
+        <h2>Leave a Review</h2>
+        <form method="POST" action="{{ url_for('submit_review', user_id=user['user_id']) }}">
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" min="1" max="5" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea name="comment" required></textarea>
+            </div>
+            <input type="submit" value="Submit Review">
+        </form>
+    </div>
+
+    {% if not is_own_profile %}
+        <!-- Add a link to message the user -->
+        <a href="{{ url_for('conversation', with_user_id=user['user_id']) }}" class="message-user-button">Message</a>
+    {% endif %}
+
+    {% if session['user_id'] == user['user_id'] %}
+    <button id="edit-button" class="edit-button">Edit Profile</button>
+
+
+    <div class="edit-profile">
+        <center><h2><span class="h2-fill"> Edit Profile</span></h2></center>
+
+        <form method="POST" action="/update_profile" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" value="{{ user['user_name'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{ user['email'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" name="location" value="{{ user['location'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profile_image">Profile Image:</label>
+                <input type="file" name="profile_image" accept="image/*">
+                <input type="hidden" name="current_profile_image" value="{{ user['profile_image'] }}">
+            </div>
+
+            <input type="submit" value="Update Profile" class="submit-button">
+            <input type="button" value="Cancel" id="cancel-button" class="cancel-button">
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+<div class="listings-container">
+    <center><h2>{% if session['user_id'] == user['user_id'] %}Your Listings{% else %}Listings{% endif %}</h2></center>
+    {% if listings|length > 0 %}
+        <ul class="listings_ul">
+            {% for listing in listings %}
+                <li><a href="{{ url_for('listing_detail', listing_id=listing['listing_id']) }}">{{ listing['title'] }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{% if session['user_id'] == user['user_id'] %}You have not created any listings yet.{% else %}No listings to display.{% endif %}</p>
+    {% endif %}
+</div>
+
+
+{% if session['user_id'] == user['user_id'] %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const editButton = document.getElementById('edit-button');
+        const cancelButton = document.getElementById('cancel-button');
+        const editProfileForm = document.querySelector('.edit-profile');
+
+        editButton.addEventListener('click', function () {
+            editProfileForm.style.display = 'block';
+        });
+
+        cancelButton.addEventListener('click', function () {
+            editProfileForm.style.display = 'none';
+        });
+
+        editProfileForm.addEventListener('submit', function () {
+            editProfileForm.style.display = 'none';
+        });
+    });
+</script>
+{% endif %}
+
+{% if not is_own_profile %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const leaveReviewButton = document.getElementById('leave-review-button');
+        const reviewForm = document.getElementById('submit-review-form');
+
+        leaveReviewButton.addEventListener('click', function () {
+            // Toggle the display of the review form
+            reviewForm.style.display = reviewForm.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+{% endif %}
+
+{% endblock %}

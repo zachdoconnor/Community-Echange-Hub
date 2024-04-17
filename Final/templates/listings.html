@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}Listings{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/listings.css') }}">
+
+<h1>Listings</h1>
+
+<!-- Search and Category filter form -->
+<form action="{{ url_for('listings') }}" method="get" class="search-filter-form">
+    <!-- Search bar -->
+    <input type="text" name="search_query" placeholder="Search listings..." value="{{ request.args.get('search_query', '') }}">
+    <!-- Category filter dropdown -->
+    <select name="category" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        {% for category in categories %}
+        <option value="{{ category.name }}" {% if selected_category == category.name %}selected{% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Search">
+</form>
+
+<div class="listings-container">
+    {% for listing in listings %}
+        <div class="listing">
+            <h2>{{ listing.title }}</h2>
+            {% if listing.images %}
+                <div class="images">
+                    {% for image in listing.images.split(',') %}
+                        <img src="{{ url_for('static', filename=image) }}" alt="{{ listing.title }}">
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <a href="{{ url_for('listing_detail', listing_id=listing.listing_id) }}" class="listing-link">See More</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

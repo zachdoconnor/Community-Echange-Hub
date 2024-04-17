@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<center><h1 class="company-name">Community Exchange Hub</h1></center>
+
+<img class="homepage-logo" src="{{ url_for('static', filename='images/logo.png') }}">
+
+<div class="home-container">
+    <img src="{{ url_for('static', filename='images/home1.jpg') }}" alt="Company Logo" class="company-logo">
+
+    <div class="company-text">
+        <h2>Our Mission</h2>
+        <p class="company-description">
+            Beyond the mere facilitation of transactions, our heart lies in forging lasting relationships. We champion local trade, aspiring to uplift sustainable living that resonates with environmental consciousness and economic prudence. Recognizing the modern longing for genuine interpersonal connections and trustworthiness in commerce, our platform stands as a beacon. Be it sharing a meticulously crafted artifact, imparting wisdom on organic farming, or on the lookout for a particular service, with Community Exchange Hub, rest assured that every interaction is anchored in trust, esteem, and mutual advantage. Dive in, and let's reshape community interactions, making every exchange meaningful.
+        </p>
+    </div>
+</div>
+
+<center><h2>Top Rated Users</h2></center>
+
+<div class="top-users-container">
+    {% for user in top_users %}
+    <div class="top-user">
+        <img src="{{ url_for('static', filename=user.profile_image or 'images/profile.jpg') }}" alt="Profile Image of {{ user.f_name }} {{ user.l_name }}">
+        <h3>{{ user.f_name }} {{ user.l_name }}</h3>
+        <p>
+            <span class="star-rating">
+                {% set full_stars = user.avg_rating|int %}
+                {% set has_half_star = user.avg_rating - full_stars >= 0.5 %}
+                {% for i in range(full_stars) %}
+                    ★ <!-- Full star -->
+                {% endfor %}
+                {% if has_half_star %}
+                    ✬ <!-- Half star -->
+                {% endif %}
+                {% for i in range(5 - full_stars - has_half_star) %}
+                    ☆ <!-- Empty star -->
+                {% endfor %}
+            </span>
+            {{ user.avg_rating|round(1) }}/5
+        </p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

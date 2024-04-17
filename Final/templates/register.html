@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block title %}Registration Page{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+<h1><center>Welcome</center></h1>
+<h3><center>Please Register to Continue</center></h3>
+
+{% with messages = get_flashed_messages(category_filter=["register_error"]) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<form class="login-form" method="POST" action="/register">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required autocomplete="off"><br>
+
+    <label for="first">First Name:</label>
+    <input type="text" name="first" required autocomplete="off"><br>
+
+    <label for="last">Last Name:</label>
+    <input type="text" name="last" required autocomplete="off"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" required autocomplete="off"><br>
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" required autocomplete="off"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required autocomplete="off"><br>
+
+    <input type="submit" value="Register">
+</form>
+
+
+<script>
+    function validatePassword(password) {
+        // Example: Validate password length and whether it contains at least one number
+        return password.length >= 8 && /\d/.test(password);
+    }
+
+    document.querySelector('.login-form').addEventListener('submit', function(event) {
+        var password = document.querySelector('[name="password"]').value;
+        if (!validatePassword(password)) {
+            event.preventDefault(); // Prevent form submission
+            alert('Password must be at least 8 characters long and contain a number.');
+        }
+    });
+</script>
+
+{% endblock %}

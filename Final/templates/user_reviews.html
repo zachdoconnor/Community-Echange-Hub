@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Your Reviews{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/review.css') }}">
+
+<div class="reviews-container">
+    <center><h1>Reviews</h1></center>
+    {% if reviews %}
+        <div class="reviews-list">
+            {% for review in reviews %}
+                <div class="review-item">
+                    <div class="review-user-name">{{ review['user_name'] }}</div>
+                    <div class="review-rating">Rating: {{ review['rating'] }}/5</div>
+                    <div class="review-comment">{{ review['comment'] }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

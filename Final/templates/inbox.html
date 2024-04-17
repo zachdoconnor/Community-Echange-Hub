@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+
+<!-- Include your stylesheet for inbox styling -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inbox.css') }}">
+
+<div class="inbox-container">
+
+  <header class="inbox-header">
+    <h1>Inbox</h1>
+  </header>
+
+  <div class="new-conversation">
+    <h2>Start a New Conversation</h2>
+    <p>Select a user from the list below to start a new message:</p>
+    <select name="user_profiles" id="user_profiles" class="user-dropdown">
+        {% for profile in all_users %}
+        <option value="{{ profile.user_id }}">{{ profile.user_name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+  <section class="conversations-list">
+    <h2>Your Conversations</h2>
+    <ul>
+      {% for conversation in conversations %}
+      <li class="conversation-item {{ 'unread' if conversation.unread }}">
+          <a href="/conversation?with_user_id={{ conversation.user_id }}" class="conversation-link">
+              <span class="conversation-name">Chat with {{ conversation.user_name }}</span>
+              <span class="last-message">Last message: {{ conversation.last_message }}</span>
+              {% if conversation.unread %}
+              <span class="unread-indicator">New</span>
+              {% endif %}
+          </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+
+<script type="text/javascript">
+document.getElementById('user_profiles').addEventListener('change', function() {
+    var selectedUserId = this.value;
+    window.location.href = '/conversation?with_user_id=' + selectedUserId;
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}Registration Page{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+    <h1><center>Welcome Back</center></h1>
+    <h3><center>Please Login</center></h3>
+
+<form class="login-form" method="POST" action="/login">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br>
+
+    <input type="submit" value="Login">
+</form>
+{% endblock %}

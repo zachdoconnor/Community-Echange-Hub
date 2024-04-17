@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}Create Listing{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+
+<h1>Create Listing</h1>
+
+<form method="post" action="{{ url_for('submit_listing') }}" enctype="multipart/form-data">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required maxlength="50">
+    <br>
+    <label for="description">Description (max 250 characters):</label>
+    <textarea id="description" name="description" maxlength="250"></textarea>
+    <br>
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+        {% for category in categories %}
+            <option value="{{ category.name }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="images">Images:</label>
+    <div class="file-input-wrapper">
+    <button class="file-input-button" type="button">Choose Files</button>
+    <input type="file" id="images" name="images" class="file-input" multiple required>
+    </div>
+    <br>
+    <button type="submit">Create Listing</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var uploadField = document.getElementById("images");
+
+        uploadField.onchange = function() {
+            var files = uploadField.files;
+            if (files.length > 0) {
+                for (var i = 0; i < files.length; i++) {
+                    if(files[i].size > 5e6){ // 5e6 bytes = 5MB
+                        alert("File size should be less than 5MB");
+                        uploadField.value = ""; // Clear the file input
+                    }
+                }
+            }
+        };
+    });
+</script>
+
+
+{% endblock %}
